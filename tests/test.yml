@@ -1,5 +1,9 @@
 ---
-- hosts: localhost
+# tasks file for ansible-playbook
+- hosts: all
   remote_user: root
-  roles:
-    - ansible-playbook
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Install Java 1.7
+    yum: name=java-1.7.0-openjdk state=present
